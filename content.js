@@ -11,11 +11,9 @@ if (!window.hasRun) {
             translateIcon.id = "translate-icon";
             translateIcon.style.position = "absolute";
             translateIcon.style.zIndex = "9999";
-            translateIcon.style.backgroundImage = `url(${chrome.runtime.getURL("icon.png")})`;
             translateIcon.style.cursor = "pointer";
             translateIcon.style.width = "30px";
             translateIcon.style.height = "30px";
-            translateIcon.style.backgroundColor = "rgb(190, 129, 255)";
             translateIcon.style.backgroundSize = "contain";
             translateIcon.style.borderRadius = "7px";
             translateIcon.style.display = "none"; 
@@ -23,12 +21,13 @@ if (!window.hasRun) {
 
             const translateResult = document.createElement("div");
             translateResult.id = "translate-result";
+            translateResult.className = "plabel"
             // translateResult.classList = ["panel box box-primary"]
             translateResult.style.position = "absolute";
-            translateResult.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-            translateResult.style.color = "white";
-            translateResult.style.padding = "10px";
-            translateResult.style.borderRadius = "5px";
+            translateResult.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+            translateResult.style.color = "black";
+            translateResult.style.padding = "4px";
+            translateResult.style.borderRadius = "3px";
             translateResult.style.fontSize = "14px";
             translateResult.style.zIndex = "9999";
             translateResult.style.display = "none";
@@ -46,9 +45,9 @@ if (!window.hasRun) {
                 });
 
                 if (matchResults.length > 0) {
-                    translateResult.innerHTML = matchResults.map(([key, value]) => `<div><b>${key}</b>: ${value}</div>`).join('');
+                    translateResult.innerHTML = matchResults.map(([key, value]) => `<b>${value}</b></br>`).join('');
                 } else {
-                    translateResult.innerHTML = "Ustoz noto'g'ri x beripti :(";
+                    translateResult.innerHTML = ".";
                 }
                 translateResult.style.display = "block";
             }
