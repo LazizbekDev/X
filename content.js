@@ -34,7 +34,7 @@ if (!window.hasRun) {
             document.body.appendChild(translateResult);
 
             function cleanText(text) {
-                return text.replace(/[.,\/#!$%\^&\*;:{}=\-_'"`~()]/g, "").replace(/\s+/g, "").toLowerCase();
+                return text.replace(/[.,\/#!$%\^&\*;:{}=\-_‘'"`~()]/g, "").replace(/\s+/g, "").toLowerCase();
             }
 
             function translateText(selectedText) {
@@ -45,7 +45,7 @@ if (!window.hasRun) {
                 });
 
                 if (matchResults.length > 0) {
-                    translateResult.innerHTML = matchResults.map(([key, value]) => `<b>${value}</b></br>`).join('');
+                    translateResult.innerHTML = matchResults.map(([key, value]) => `${value}</br>`).join('');
                 } else {
                     translateResult.innerHTML = ".";
                 }
